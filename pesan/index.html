@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pesan Portofolio | Portoku.pro</title>
+  <meta name="description" content="Isi data singkat, dan tim Portoku.pro akan membuatkan website portofolio profesionalmu.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="../assets/maskot-duduk.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest:#1558D6; --forest-2:#087F9C; --lime:#C6F36B; --paper:#F5FBFF;
+      --ink:#12243A; --muted:#62748A; --line:#D7E8F1; --white:#FFFFFF;
+      --danger:#B42318; --success:#087F9C;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; background:radial-gradient(ellipse at 10% 0%,rgba(83,218,255,.18),transparent 34%),radial-gradient(ellipse at 100% 15%,rgba(198,243,107,.16),transparent 30%),var(--paper); color:var(--ink); font-family:"Plus Jakarta Sans",Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    .shell { max-width:800px; margin:28px auto; padding:0 16px 28px; }
+    .hero { background:linear-gradient(135deg,rgba(255,255,255,.94),rgba(220,245,255,.90) 55%,rgba(230,255,196,.78)); color:var(--ink); border:1px solid rgba(255,255,255,.95); border-radius:24px; padding:28px; box-shadow:0 18px 55px rgba(25,116,190,.12),inset 0 1px 0 rgba(255,255,255,.95); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); }
+    .brand { display:flex; align-items:center; gap:12px; margin-bottom:26px; }
+    .brand-mark { display:grid; place-items:center; width:56px; height:56px; flex:0 0 56px; border-radius:16px; overflow:hidden; background:rgba(255,255,255,.76); border:1px solid rgba(74,190,255,.28); box-shadow:0 8px 24px rgba(28,121,209,.12); }
+    .brand-mark img { width:100%; height:100%; object-fit:contain; display:block; }
+    .brand-name { font-size:22px; font-weight:850; letter-spacing:-.8px; }
+    .brand-tag { font-size:10px; letter-spacing:1.5px; color:#3975A0; margin-top:3px; }
+    .eyebrow { color:#1672D7; font-size:11px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; }
+    h1 { font-size:clamp(28px,5vw,42px); line-height:1.08; letter-spacing:-1.5px; margin:12px 0; }
+    .hero p { color:#526D84; line-height:1.65; margin:0; max-width:600px; }
+    .progress { display:grid; grid-template-columns:repeat(5,1fr); gap:7px; margin-top:25px; }
+    .progress-item { min-width:0; }
+    .progress-bar { height:4px; background:#C7E1F0; border-radius:9px; margin-bottom:8px; }
+    .progress-item.active .progress-bar,.progress-item.done .progress-bar { background:var(--lime); }
+    .progress-label { font-size:11px; color:#66839A; }
+    .progress-item.active .progress-label { color:var(--forest); font-weight:700; }
+    .card { margin-top:16px; padding:clamp(20px,4vw,32px); border:1px solid rgba(196,224,239,.85); border-radius:22px; background:rgba(255,255,255,.84); box-shadow:0 12px 38px rgba(31,111,170,.07); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); }
+    .step { display:none; }
+    .step.active { display:block; }
+    .step-head { margin-bottom:24px; }
+    h2 { margin:0 0 7px; color:var(--forest); font-size:24px; letter-spacing:-.5px; }
+    .sub { color:var(--muted); line-height:1.6; margin:0; font-size:14px; }
+    .field { margin:17px 0; }
+    label,.field-label { display:block; font-size:13px; font-weight:750; margin-bottom:8px; }
+    .optional { color:var(--muted); font-weight:500; font-size:11px; margin-left:5px; }
+    input:not([type=color]):not([type=checkbox]):not([type=radio]),select,textarea {
+      width:100%; border:1px solid #D4E4EF; border-radius:11px; background:rgba(255,255,255,.92); color:var(--ink);
+      padding:12px 13px; font:inherit; font-size:14px; outline:none; transition:border .15s,box-shadow .15s;
+    }
+    textarea { min-height:105px; resize:vertical; line-height:1.55; }
+    input:focus,select:focus,textarea:focus { border-color:#2389E8; box-shadow:0 0 0 3px rgba(35,137,232,.14); }
+    .hint { color:var(--muted); font-size:11px; margin-top:6px; line-height:1.5; }
+    .slug-wrap { display:flex; align-items:stretch; }
+    .slug-wrap input { border-radius:11px 0 0 11px !important; min-width:0; }
+    .suffix { display:flex; align-items:center; padding:0 12px; background:#E8F6FC; color:var(--forest); font-size:12px; border:1px solid #D4E4EF; border-left:0; border-radius:0 11px 11px 0; white-space:nowrap; }
+    .choice-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+    .choice { position:relative; display:flex; align-items:flex-start; gap:10px; border:1px solid var(--line); border-radius:12px; padding:13px; cursor:pointer; min-height:64px; }
+    .choice:has(input:checked) { border-color:#2389E8; background:linear-gradient(135deg,#F0FAFF,#F7FFE7); box-shadow:inset 0 0 0 1px #2389E8,0 5px 18px rgba(35,137,232,.08); }
+    .choice input { margin:3px 0 0; accent-color:#2389E8; }
+    .choice strong { display:block; color:var(--forest); font-size:13px; margin-bottom:3px; }
+    .choice small { color:var(--muted); font-size:11px; line-height:1.45; display:block; }
+    .palette { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:9px; }
+    .swatch { border:1px solid transparent; padding:5px 3px; border-radius:10px; background:white; cursor:pointer; color:var(--muted); font:inherit; font-size:10px; }
+    .swatch.selected { border-color:var(--forest); background:#EDF8FF; color:var(--forest); font-weight:800; }
+    .swatch-color { display:grid; place-items:center; width:100%; height:34px; border-radius:7px; border:1px solid #D4D9D4; margin-bottom:5px; font-size:15px; }
+    .color-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .custom-color { display:flex; align-items:center; gap:9px; border:1px solid var(--line); border-radius:10px; padding:8px 10px; }
+    .custom-color input[type=color] { width:34px; height:30px; border:0; padding:0; background:none; cursor:pointer; }
+    .custom-color code { font-size:12px; color:var(--forest); }
+    .preview { overflow:hidden; border:1px solid var(--line); border-radius:14px; margin-top:12px; }
+    .preview-nav { padding:13px 15px; display:flex; align-items:center; justify-content:space-between; gap:8px; font-size:12px; font-weight:800; }
+    .preview-body { padding:22px 17px; }
+    .preview-body h3 { margin:0 0 7px; font-size:25px; letter-spacing:-1px; }
+    .preview-body p { margin:0 0 15px; font-size:12px; }
+    .preview-btn { display:inline-block; border-radius:7px; padding:9px 12px; font-size:11px; font-weight:800; }
+    .upload-box { display:block; border:1px dashed #8FCBE8; border-radius:14px; padding:22px 16px; text-align:center; cursor:pointer; background:linear-gradient(135deg,rgba(240,250,255,.7),rgba(255,255,255,.8)); }
+    .upload-box:hover { border-color:#2389E8; background:#F0FAFF; }
+    .upload-icon { font-size:26px; margin-bottom:8px; }
+    .upload-box strong { display:block; color:var(--forest); font-size:14px; }
+    .upload-box span { display:block; color:var(--muted); font-size:12px; line-height:1.5; margin-top:5px; }
+    .upload-box input { display:none; }
+    .file-list { margin-top:8px; font-size:12px; color:var(--muted); overflow-wrap:anywhere; }
+    .notice { display:flex; gap:10px; background:linear-gradient(135deg,#EDF9FF,#F5FFE8); border:1px solid #D7ECF6; border-radius:12px; padding:14px; color:#31566D; font-size:12px; line-height:1.55; margin:18px 0; }
+    .notice strong { display:block; margin-bottom:3px; }
+    .summary { border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+    .summary-row { display:grid; grid-template-columns:140px 1fr; gap:12px; padding:11px 13px; border-bottom:1px solid #E8EDE8; font-size:12px; }
+    .summary-row:last-child { border-bottom:0; }
+    .summary-row span { color:var(--muted); }
+    .summary-row strong { color:var(--forest); overflow-wrap:anywhere; font-weight:650; }
+    .checkline { display:flex; align-items:flex-start; gap:10px; font-size:12px; line-height:1.55; font-weight:500; margin-top:16px; }
+    .checkline input { accent-color:var(--success); margin-top:3px; }
+    .actions { display:flex; gap:10px; margin-top:27px; }
+    button { font:inherit; cursor:pointer; }
+    .btn { border:0; border-radius:11px; padding:13px 18px; font-weight:800; font-size:13px; }
+    .btn-primary { background:linear-gradient(110deg,#1769E0,#078DAA 68%,#7DBB39); color:white; flex:1; box-shadow:0 8px 22px rgba(27,120,204,.18); }
+    .btn-primary:hover { background:linear-gradient(110deg,#0D56C7,#06748D 68%,#659E2B); }
+    .btn-secondary { background:rgba(255,255,255,.9); border:1px solid #D4E4EF; color:var(--forest); }
+    .btn:disabled { opacity:.5; cursor:not-allowed; }
+    .status { display:none; margin-top:15px; padding:13px; border-radius:10px; font-size:13px; line-height:1.5; }
+    .status.show { display:block; }
+    .status.error { color:#8D1B13; background:#FDECEB; }
+    .status.success { color:#075E65; background:#E5F8F7; }
+    .status.info { color:#15558A; background:#EAF6FF; }
+    .footer { text-align:center; color:var(--muted); font-size:10px; letter-spacing:1px; padding:22px 8px 0; }
+    .hp { position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden; }
+    @media(max-width:520px) {
+      .shell { margin:12px auto; padding:0 10px 18px; }
+      .hero { padding:22px 18px; border-radius:17px; }
+      .progress { gap:4px; }
+      .progress-label { font-size:9px; }
+      .choice-grid { grid-template-columns:1fr; }
+      .palette { grid-template-columns:repeat(4,minmax(0,1fr)); }
+      .color-row { grid-template-columns:1fr; }
+      .summary-row { grid-template-columns:105px 1fr; }
+      .card { border-radius:16px; }
+    }
+    /* ===== tambahan rapihan ===== */
+    html { scroll-behavior:smooth; }
+    body { -webkit-font-smoothing:antialiased; min-height:100vh; }
+    .brand { justify-content:space-between; }
+    .brand-left { display:flex; align-items:center; gap:12px; min-width:0; }
+    .back-home { font-size:12px; font-weight:700; color:var(--forest); text-decoration:none; padding:8px 12px; border-radius:99px; background:rgba(255,255,255,.8); border:1px solid #D4E4EF; white-space:nowrap; }
+    .back-home:hover { background:#fff; border-color:#2389E8; }
+    .summary-row strong { white-space:pre-line; }
+    .choice small b { color:var(--forest); font-weight:800; }
+    .social-list { display:grid; gap:12px; }
+    .social-row { display:flex; flex-wrap:wrap; gap:8px; padding:12px; border:1px solid var(--line); border-radius:12px; background:rgba(245,251,255,.7); }
+    .social-row select { flex:0 0 160px; }
+    .social-row .s-custom { flex:1 1 100%; }
+    .social-row .s-url { flex:1 1 200px; min-width:0; }
+    .icon-btn { flex:0 0 42px; height:44px; border-radius:11px; border:1px solid #F0C9C5; background:#fff; color:var(--danger); font-size:18px; line-height:1; }
+    .icon-btn:hover { background:#FDECEB; }
+    .btn-add { margin-top:10px; border:1px dashed #8FCBE8; background:#F0FAFF; color:var(--forest); border-radius:11px; padding:11px 14px; font-weight:800; font-size:13px; width:100%; }
+    .btn-add:hover { background:#E3F4FF; border-color:#2389E8; }
+    .btn-add:disabled { opacity:.5; cursor:not-allowed; }
+    .file-list ul { list-style:none; margin:0; padding:0; text-align:left; }
+    .file-list li { display:flex; justify-content:space-between; gap:10px; padding:4px 0; }
+    .file-list .size { color:var(--muted); white-space:nowrap; }
+    .success { display:none; text-align:center; padding:12px 4px; }
+    .success.show { display:block; }
+    .success .tick { width:64px; height:64px; margin:0 auto 14px; border-radius:50%; display:grid; place-items:center; background:linear-gradient(135deg,#1769E0,#7DBB39); color:#fff; font-size:30px; box-shadow:0 10px 28px rgba(27,120,204,.25); }
+    .success h2 { font-size:26px; }
+    .success p { color:var(--muted); line-height:1.65; font-size:14px; max-width:480px; margin:8px auto 0; }
+    .success .actions { justify-content:center; flex-wrap:wrap; }
+    .success a.btn { text-decoration:none; display:inline-block; text-align:center; flex:0 1 auto; }
+    .btn-wa { background:#25D366; color:#fff; }
+    .config-warning { background:#FFF4E5; border:1px solid #FFD9A0; color:#7A4A00; border-radius:12px; padding:12px 14px; font-size:12px; margin-top:16px; display:none; }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div class="brand">
+        <div class="brand-left">
+          <div class="brand-mark"><img src="../assets/logo-form.png" alt="Maskot Portoku.pro" width="56" height="56"></div>
+          <div>
+            <div class="brand-name">portoku.pro</div>
+            <div class="brand-tag">BUILD YOUR PROFESSIONAL IDENTITY</div>
+          </div>
+        </div>
+        <a class="back-home" href="../">← Beranda</a>
+      </div>
+      <div class="eyebrow">Portfolio Registration</div>
+      <h1>Ceritakan tentang dirimu.</h1>
+      <p>Kami bantu mengubah perjalanan dan keahlianmu menjadi portofolio digital yang profesional.</p>
+      <div class="progress" id="progress">
+        <div class="progress-item active"><div class="progress-bar"></div><div class="progress-label">1. Profil</div></div>
+        <div class="progress-item"><div class="progress-bar"></div><div class="progress-label">2. Pengalaman</div></div>
+        <div class="progress-item"><div class="progress-bar"></div><div class="progress-label">3. Tema</div></div>
+        <div class="progress-item"><div class="progress-bar"></div><div class="progress-label">4. Berkas</div></div>
+        <div class="progress-item"><div class="progress-bar"></div><div class="progress-label">5. Konfirmasi</div></div>
+      </div>
+    </header>
+
+    <form id="customerForm" class="card" novalidate>
+      <!-- Honeypot: pengunjung asli tidak melihat kolom ini -->
+      <div class="hp" aria-hidden="true"><label>Jangan isi kolom ini<input id="website" autocomplete="off" tabindex="-1"></label></div>
+
+      <!-- ===== Langkah 1 ===== -->
+      <section class="step active" data-step="0">
+        <div class="step-head"><h2>Informasi dasar</h2><p class="sub">Mulai dari identitas dan bidang profesionalmu.</p></div>
+        <div class="field"><label for="name">Nama lengkap *</label><input id="name" name="name" maxlength="120" required autocomplete="name" placeholder="Nama yang akan ditampilkan"></div>
+        <div class="field">
+          <label for="slug">Nama domain pilihan *</label>
+          <div class="slug-wrap"><input id="slug" name="slug" maxlength="40" required placeholder="namakamu" autocomplete="off" autocapitalize="none" spellcheck="false"><span class="suffix">.portoku.pro</span></div>
+          <div class="hint">Gunakan huruf, angka, dan tanda hubung. Kami akan mengecek ketersediaannya sebelum website diterbitkan.</div>
+        </div>
+        <div class="field"><label for="profession">Bidang profesi *</label>
+          <select id="profession" name="profession" required>
+            <option value="Graphic Designer">Graphic Designer</option><option value="UI/UX Designer">UI/UX Designer</option>
+            <option value="Web Developer">Web Developer</option><option value="Photographer">Photographer</option>
+            <option value="Video Editor">Video Editor</option><option value="Student / Fresh Graduate">Student / Fresh Graduate</option>
+            <option value="Professional / Other">Professional / Other</option>
+          </select>
+        </div>
+        <div class="field"><label for="email">Email aktif *</label><input id="email" name="email" type="email" required maxlength="180" autocomplete="email" placeholder="nama@email.com"></div>
+        <div class="field"><label for="phone">Nomor WhatsApp aktif *</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="20" placeholder="081234567890"><div class="hint">Pastikan nomor aktif agar tim Portoku bisa menghubungimu saat website selesai. Boleh diawali 08…, 62…, atau +62…</div></div>
+        <div class="field"><label for="bio">Deskripsi singkat tentang dirimu *</label><textarea id="bio" name="bio" required maxlength="3000" placeholder="Ceritakan siapa kamu, keahlianmu, dan apa yang ingin kamu capai..."></textarea></div>
+      </section>
+
+      <!-- ===== Langkah 2 ===== -->
+      <section class="step" data-step="1">
+        <div class="step-head"><h2>Pengalaman &amp; keahlian</h2><p class="sub">Bantu kami memahami perjalanan profesionalmu. Bagian ini bisa dilengkapi sesuai kebutuhan.</p></div>
+        <div class="field"><label for="experience">Pengalaman kerja atau pendidikan <span class="optional">Opsional</span></label><textarea id="experience" name="experience" maxlength="4000" placeholder="Nama perusahaan/sekolah, jabatan, tahun, dan pencapaian..."></textarea></div>
+        <div class="field"><label for="skills">Keahlian utama <span class="optional">Opsional</span></label><textarea id="skills" name="skills" maxlength="2000" placeholder="Contoh: Adobe Illustrator, branding, layouting, UI design..."></textarea></div>
+
+        <div class="field">
+          <span class="field-label">Media sosial &amp; tautan profesional <span class="optional">Opsional</span></span>
+          <div id="socialList" class="social-list"></div>
+          <button type="button" id="addSocial" class="btn-add">+ Tambah link</button>
+          <div class="hint">Contoh: Instagram, LinkedIn, Behance, GitHub, atau website lain. Maksimal 8 link.</div>
+        </div>
+
+        <div class="field"><span class="field-label">Pilih paket *</span>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="packageName" value="Basic"><span><strong>Basic</strong><small><b>Rp200.000</b> · 1–3 halaman</small></span></label>
+            <label class="choice"><input type="radio" name="packageName" value="Standar" checked><span><strong>Standar</strong><small><b>Rp400.000</b> · 3–5 halaman</small></span></label>
+            <label class="choice"><input type="radio" name="packageName" value="Custom"><span><strong>Custom</strong><small><b>Mulai Rp1.000.000</b> · sesuai kebutuhan</small></span></label>
+          </div>
+          <div class="hint">Belum yakin? Pilih saja dulu, paket bisa disesuaikan saat kami menghubungimu.</div>
+        </div>
+      </section>
+
+      <!-- ===== Langkah 3 ===== -->
+      <section class="step" data-step="2">
+        <div class="step-head"><h2>Preferensi visual</h2><p class="sub">Pilih gaya dan warna yang kamu sukai. Seluruh bagian ini opsional, Portoku bisa membantu menentukan konsepnya.</p></div>
+        <div class="field"><span class="field-label">Gaya desain website</span>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="designStyle" value="Minimalis profesional" checked><span><strong>Minimalis profesional</strong><small>Bersih, elegan, fokus pada konten.</small></span></label>
+            <label class="choice"><input type="radio" name="designStyle" value="Modern kreatif"><span><strong>Modern kreatif</strong><small>Dinamis untuk desainer dan kreator.</small></span></label>
+            <label class="choice"><input type="radio" name="designStyle" value="Elegan premium"><span><strong>Elegan premium</strong><small>Eksklusif dengan tipografi kuat.</small></span></label>
+            <label class="choice"><input type="radio" name="designStyle" value="Dark modern"><span><strong>Dark modern</strong><small>Latar gelap dengan kontras tegas.</small></span></label>
+            <label class="choice"><input type="radio" name="designStyle" value="Rekomendasi Portoku"><span><strong>Rekomendasikan untuk saya</strong><small>Portoku menentukan arah visual.</small></span></label>
+          </div>
+        </div>
+        <div class="field"><span class="field-label">Warna background</span><div class="palette" data-color-group="backgroundColor"></div><div class="custom-color"><input type="color" id="backgroundColor" value="#F8FCFF" aria-label="Pilih warna background"><code id="backgroundColorHex">#F8FCFF</code><span class="hint">Pilih warna khusus</span></div></div>
+        <div class="field"><span class="field-label">Warna pendamping</span><div class="palette" data-color-group="secondaryColor"></div><div class="custom-color"><input type="color" id="secondaryColor" value="#1558D6" aria-label="Pilih warna pendamping"><code id="secondaryColorHex">#1558D6</code><span class="hint">Pilih warna khusus</span></div></div>
+        <div class="field"><span class="field-label">Warna aksen</span><div class="palette" data-color-group="accentColor"></div><div class="custom-color"><input type="color" id="accentColor" value="#C6F36B" aria-label="Pilih warna aksen"><code id="accentColorHex">#C6F36B</code><span class="hint">Pilih warna khusus</span></div></div>
+        <div class="preview" id="themePreview">
+          <div class="preview-nav" id="previewNav"><span>▦ PORTFOLIO</span><span class="preview-btn" id="previewContact">Contact</span></div>
+          <div class="preview-body" id="previewBody"><h3 id="previewTitle">Your Name.</h3><p id="previewText">Creative professional &amp; specialist.</p><span class="preview-btn" id="previewButton">Explore My Work ↗</span></div>
+        </div>
+        <div class="field"><label for="designNotes">Catatan tambahan untuk desain <span class="optional">Opsional</span></label><textarea id="designNotes" name="designNotes" maxlength="2000" placeholder="Contoh: banyak whitespace, animasi halus, tidak terlalu ramai..."></textarea></div>
+        <div class="notice"><div>✦</div><div><strong>Belum punya ide desain?</strong>Tidak masalah. Lewati bagian ini atau pilih “Rekomendasikan untuk saya”. Portoku akan menyarankan tampilan berdasarkan profesi dan kebutuhanmu.</div></div>
+      </section>
+
+      <!-- ===== Langkah 4 ===== -->
+      <section class="step" data-step="3">
+        <div class="step-head"><h2>Unggah berkas</h2><p class="sub">Berkas opsional, tetapi dapat membantu kami membuat portofolio yang lebih personal.</p></div>
+        <div class="field"><label for="profilePhoto">Foto profil <span class="optional">Opsional</span></label><label class="upload-box" for="profilePhoto"><div class="upload-icon">↥</div><strong>Pilih foto profil</strong><span>JPG, PNG, atau WebP · foto besar otomatis dikecilkan</span><span id="photoList" class="file-list">Belum ada file dipilih</span><input id="profilePhoto" type="file" accept="image/jpeg,image/png,image/webp"></label></div>
+        <div class="field"><label for="referenceFiles">CV, sertifikat, hasil karya, atau referensi desain <span class="optional">Opsional</span></label><label class="upload-box" for="referenceFiles"><div class="upload-icon">▤</div><strong>Pilih berkas pendukung</strong><span>PDF, JPG, PNG, atau WebP · maksimal 5 file total (termasuk foto profil), PDF maksimal 5 MB</span><span id="referenceList" class="file-list">Belum ada file dipilih</span><input id="referenceFiles" type="file" accept="application/pdf,image/jpeg,image/png,image/webp" multiple></label></div>
+        <div class="notice"><div>♧</div><div><strong>Privasi berkas</strong>File disimpan di Google Drive milik Portoku dan tidak otomatis dipublikasikan. Hanya unggah berkas yang memang ingin kamu bagikan untuk proses pembuatan portofolio.</div></div>
+      </section>
+
+      <!-- ===== Langkah 5 ===== -->
+      <section class="step" data-step="4">
+        <div class="step-head"><h2>Periksa pesananmu</h2><p class="sub">Pastikan data sudah benar sebelum dikirim ke tim Portoku.</p></div>
+        <div class="summary" id="summary"></div>
+        <label class="checkline"><input type="checkbox" id="consent"><span>Saya menyatakan data yang diberikan benar dan menyetujui penggunaannya untuk proses pembuatan portofolio oleh Portoku.pro. *</span></label>
+        <div class="notice"><div>✉</div><div><strong>Setelah dikirim</strong>Data akan masuk ke sistem Portoku dan notifikasi pesanan baru dikirim ke tim. Kami akan mengecek ketersediaan subdomain dan menghubungimu melalui WhatsApp untuk tindak lanjut pesanan.</div></div>
+      </section>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+      <div id="configWarning" class="config-warning"></div>
+      <div class="actions" id="actions">
+        <button type="button" id="backBtn" class="btn btn-secondary" style="display:none">← Kembali</button>
+        <button type="button" id="nextBtn" class="btn btn-primary">Lanjutkan →</button>
+        <button type="submit" id="submitBtn" class="btn btn-primary" style="display:none">Kirim Data Portofolio ↗</button>
+      </div>
+
+      <!-- ===== Layar sukses ===== -->
+      <div id="success" class="success" role="status" aria-live="polite">
+        <div class="tick">✓</div>
+        <h2 id="successTitle">Terima kasih!</h2>
+        <p id="successText">Data portofoliomu berhasil dikirim.</p>
+        <div class="actions">
+          <a id="successWa" class="btn btn-wa" target="_blank" rel="noopener">Chat Portoku via WhatsApp</a>
+          <a class="btn btn-secondary" href="../">Kembali ke beranda</a>
+        </div>
+      </div>
+    </form>
+    <div class="footer">PORTOKU.PRO · YOUR STORY, PROFESSIONALLY PRESENTED</div>
+  </main>
+
+  <script src="form.js"></script>
+</body>
+</html>

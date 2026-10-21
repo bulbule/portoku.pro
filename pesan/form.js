@@ -4,7 +4,7 @@
    ========================================================= */
 const CONFIG = {
   // Tempel URL Web App Apps Script (yang berakhiran /exec) di sini:
-  API_URL: "https://script.google.com/macros/s/AKfycbzt3O1lj2bZUL-hfZBg4_Yub4QbnUkBKkD8wRNHKzlTgZLj41DnQkSmmEWxGZZlRTkhcg/exec",
+  API_URL: "https://script.google.com/macros/s/AKfycbyOcMbyQFBN2Sk5CFIEO6dpotDh281LX-nkQrXD2wtLw2f2xGV4AbZCsMMqRf3y0BDagQ/exec",
   WA_NUMBER: "62895321868008",
   MAX_BYTES: 5 * 1024 * 1024,
   MAX_FILES: 5,
